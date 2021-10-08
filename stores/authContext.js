@@ -19,18 +19,33 @@ export const AuthContextProvider = ({ children }) => {
       console.log('login event')
     })
 
+    netlifyIdentity.on('logout', () => {
+      setUser(null)
+      console.log('logout event')
+    })
+
     //init netlify identity connection
     netlifyIdentity.init()
     console.log('netlify successfully init!')
+
+    return () => {
+      netlifyIdentity.off('login')
+      netlifyIdentity.off('login')
+    }
   }, [])
 
   const login = () => {
     netlifyIdentity.open()
   }
 
+  const logout = () => {
+    netlifyIdentity.logout()
+  }
+
   const context = {
     user,
-    login
+    login,
+    logout
   }
   return (
     <AuthContext.Provider value={context}>
