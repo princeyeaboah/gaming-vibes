@@ -55,3 +55,13 @@ nav li.btn:hover {
 .banner img {
   border-radius: 6px;
 }
+.userName {
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 30px;
+  padding: 10px 16px;
+  
+}
